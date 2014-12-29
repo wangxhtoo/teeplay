@@ -9,8 +9,8 @@ String basePath = request.getContextPath();
 <title>Free House Framing Contruction Services Website Template | Home :: w3layouts</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="<%=basePath %>/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="<%=basePath %>css/slider.css" rel="stylesheet" type="text/css" media="all"/>
 <script type="text/javascript" src="<%=basePath %>/js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript">
@@ -24,15 +24,15 @@ String basePath = request.getContextPath();
 	      	<div class="header_top">
 			        <div class="wrap">	 
 					<div class="logo">
-					   <a href="index.html"><img src="<%=basePath %>/images/logo.png" alt="" /></a>
+					   <a href="index.jsp"><img src="<%=basePath %>/images/logo.png" alt="" /></a>
 					</div>
 						 <div class="menu">
 						    <ul>
-								<li class="active"><a href="index.html">Home</a></li>
-								<li><a href="about.html">About Us</a></li>
-								<li><a href="services.html">Services</a></li>
-								<li><a href="marketing.html">Marketing</a></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li class="active"><a href="<%=basePath %>/index.jsp">Home</a></li>
+								<li><a href="<%=basePath %>/about.jsp">About Us</a></li>
+								<li><a href="<%=basePath %>/services.jsp">Services</a></li>
+								<li><a href="<%=basePath %>/marketing.jsp">Marketing</a></li>
+								<li><a href="<%=basePath %>/contact.jsp">Contact</a></li>
 								<div class="clear"></div>
 					        </ul>       
 						</div>
@@ -79,7 +79,7 @@ String basePath = request.getContextPath();
 			    		<div class="project_img">
 				    	   <img src="<%=basePath %>/images/project1.jpg">
 				    	   <img src="<%=basePath %>/images/project2.jpg">
-				    	    <div class="view-all"><a href="events.html">See All</a></div>
+				    	    <div class="view-all"><a href="events.jsp">See All</a></div>
 			    	   </div>
 			    	</div>
 	    		</div>
@@ -117,7 +117,7 @@ String basePath = request.getContextPath();
 		     		<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 		     		<span><a href="#">read more</a></span>
 		     	</div>
-		     	<div class="view-all"><a href="events.html">ViewAll</a></div>
+		     	<div class="view-all"><a href="events.jsp">ViewAll</a></div>
           </div>	
         </div>
         <div class="sidebar_right_bottom">
