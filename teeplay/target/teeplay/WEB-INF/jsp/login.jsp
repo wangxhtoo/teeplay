@@ -1,38 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.2.min.js"></script>
+
 </head>
 <body>
-<div>
-	<form action="${basePath}/index" method="post" id="loginBtn" name="loginBtn" autocomplete="off">
-		用户名：<input type="text" id="email" name="email" />
-		<br/>
-		密码:<input type="password" id="password" name="password"/>
-		<br/>
-		<input type="submit" value="登录" >
+<%@include file="header.jsp" %>
+	<form action="/login" id="loginform">
+		<input type="text" id="username" name="username">
+		<input type="text" id="password" name="password">
 	</form>
-	<div id="error" style="display: none;"></div>
-</div>
-<script type="text/javascript">
-	$(function(){
-		$("#loginBtn").ajaxForm({
-			dataType : 'json',
-			success : function(data) {
-				alert(data.result);
-				if (data.result == "true") {
-					//location.href="/user/getUsers";			
-				}else{
-					$('#error').html(data.msg);
-					return;
-				}
-			}
+	<input type="button" id="commit" name="commit" value="提交">
+	<div id="error" style="color: red;"></div>
+<%@include file="footer.jsp" %>
+	<script type="text/javascript">
+		$(function(){
+			$("#commit").click(function(){
+				$.ajax({
+					url:"/login",
+					dataType:"json",
+					data:$("#loginform").serialize(),
+					type:"POST",
+					success:function(data){
+						if(data.result){
+							window.location.href="/index";
+						}else{
+							$("#error").html(data.msg);
+						}
+					},
+					error:function(data){
+						alert(data.msg);
+					}
+				});
+			});
 		});
-	});
-</script>
+	</script>
 </body>
 </html>

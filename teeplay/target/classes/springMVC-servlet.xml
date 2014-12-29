@@ -15,7 +15,7 @@
 	<!-- springMVC自动注解 -->
 	<mvc:annotation-driven />
 	
-	<!-- 配置扫描报 -->
+	<!-- 配置扫描 -->
 	<context:component-scan base-package="org.teeplay.controller">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>

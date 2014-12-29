@@ -12,18 +12,37 @@
 	   	http://www.springframework.org/schema/mvc
 	   	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
+	<!-- springMVC自动注解 -->
 	<mvc:annotation-driven />
+	
+	<!-- 配置扫描 -->
 	<context:component-scan base-package="org.teeplay.controller">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
+	<!-- 
+		springMVC 国际化配置 
+		1、配置如下bean，basename中指定文件的基本名称，如下：message为基本名称，/internal为路径，有了
+		基本名称spring会结合语言组成文件名，message_zh_CN.properties
+		2、在jsp页面中引入标签：
+			<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+		3、使用spring标签取值
+			<spring:message code="title"/>
+	-->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>/internal/message</value>
+		</property>
+	</bean>
 	
+	<!-- 配置视图 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
+	<!-- 过滤静态资源，防止发生404 -->
 	<mvc:default-servlet-handler/>
 	
-	
+
 </beans>

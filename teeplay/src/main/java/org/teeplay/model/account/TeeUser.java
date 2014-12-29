@@ -60,6 +60,7 @@ public class TeeUser {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
 	@Override
 	public String toString() {
 		return "TeeUser [id=" + id + ", name=" + name + ", password="
