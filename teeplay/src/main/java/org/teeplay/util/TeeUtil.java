@@ -1,5 +1,11 @@
 package org.teeplay.util;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import com.alibaba.fastjson.JSON;
+
 public class TeeUtil {
 	
 	public static final String SESSION_USER = "teeplay_session_user";
@@ -28,4 +34,18 @@ public class TeeUtil {
         }
         return true;
     }
+	
+	public static void writeToJson(Object obj,HttpServletResponse rep){
+		try {
+			String json = JSON.toJSONStringWithDateFormat(obj, "yyyy-MM-dd HH:mm:ss");
+//			logger.info("[BaseServlet][writeToJson : " + json+"]");
+			rep.setContentType("text/html;charset=utf-8");
+			rep.getWriter().write(json);
+			rep.getWriter().flush();
+			rep.getWriter().close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }

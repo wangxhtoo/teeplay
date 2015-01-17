@@ -16,16 +16,6 @@ public class TeeplayController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(TeeplayController.class);
 	
-	@Autowired
-	private UserService userService;
-	
-	
-	@RequestMapping(value="/toLogin")
-	public String toLogin(HttpServletRequest req,HttpServletResponse rep,Model model){
-		return "/login";
-		
-	}
-
 	@RequestMapping(value="/")
 	public String index(HttpServletRequest req,HttpServletResponse rep,Model model){
 		return "/index";

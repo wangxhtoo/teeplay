@@ -22,11 +22,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public TeeUser getUserByEmail(String email) {
-		TeeUser user = new TeeUser();
-		user.setId(1111111L);
-		user.setName("wangxiaohui");
-		user.setPassword("111111");
-		return user;
+		if(email.equals("wangxiaohui")){
+			TeeUser user = new TeeUser();
+			user.setId(1111111L);
+			user.setName("wangxiaohui");
+			user.setPassword("111111");
+			return user;
+		}
+		return null;
 	}
 
 }
