@@ -1,7 +1,5 @@
 package org.teeplay.controller;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,12 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.teeplay.model.Teeplay;
-import org.teeplay.model.account.TeeUser;
 import org.teeplay.service.account.UserService;
-import org.teeplay.util.HttpUtils;
-import org.teeplay.util.TeeUtil;
 
 @Controller
 public class TeeplayController {
@@ -29,44 +22,33 @@ public class TeeplayController {
 	
 	@RequestMapping(value="/toLogin")
 	public String toLogin(HttpServletRequest req,HttpServletResponse rep,Model model){
-		logger.info("TeeplayController ====> toLogin");
 		return "/login";
 		
 	}
-	
+
 	@RequestMapping(value="/")
 	public String index(HttpServletRequest req,HttpServletResponse rep,Model model){
-		logger.info("TeeplayController ====> index");
-//		TeeUser u = (TeeUser) req.getSession().getAttribute(TeeUtil.SESSION_USER);
-//		logger.info("TeeplayController ====> index ====>" + u.toString());
-//		req.setAttribute("user", u);
 		return "/index";
 		
 	}
-	
-	@RequestMapping(value="/login")
-	public void login(@RequestParam(value="username") String username,
-				@RequestParam(value="password") String password,
-				HttpServletRequest resq,HttpServletResponse resp) throws IOException{
-		logger.info("TeeplayController ====> login");
+	@RequestMapping(value="/about")
+	public String about(HttpServletRequest req,HttpServletResponse rep,Model model){
+		return "/about";
 		
-		Teeplay tee = new Teeplay();
+	}
+	@RequestMapping(value="/services")
+	public String services(HttpServletRequest req,HttpServletResponse rep,Model model){
+		return "/services";
 		
-		TeeUser u = userService.getUserByEmail(username);
-		if(u == null){
-			tee.setResult(false);
-			tee.setMsg("账户不存在");
-		}else{
-			if(!u.getPassword().equals(password)){
-				tee.setResult(false);
-				tee.setMsg("用户名或密码错误");
-			}else{
-				resq.getSession().setAttribute(TeeUtil.SESSION_USER, u);
-				tee.setResult(true);
-				tee.setMsg("登陆成功");
-			}
-		}
-		HttpUtils.renderJson(resp, tee);
-		return;
+	}
+	@RequestMapping(value="/marketing")
+	public String marketing(HttpServletRequest req,HttpServletResponse rep,Model model){
+		return "/marketing";
+		
+	}
+	@RequestMapping(value="/contact")
+	public String contact(HttpServletRequest req,HttpServletResponse rep,Model model){
+		return "/contact";
+		
 	}
 }

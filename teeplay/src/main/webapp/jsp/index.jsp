@@ -11,8 +11,8 @@ String basePath = request.getContextPath();
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="<%=basePath %>css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="<%=basePath %>/js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="<%=basePath %>/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();
@@ -28,11 +28,11 @@ String basePath = request.getContextPath();
 					</div>
 						 <div class="menu">
 						    <ul>
-								<li class="active"><a href="<%=basePath %>/index.jsp">Home</a></li>
-								<li><a href="<%=basePath %>/about.jsp">About Us</a></li>
-								<li><a href="<%=basePath %>/services.jsp">Services</a></li>
-								<li><a href="<%=basePath %>/marketing.jsp">Marketing</a></li>
-								<li><a href="<%=basePath %>/contact.jsp">Contact</a></li>
+								<li class="active"><a href="<%=basePath %>/">&nbsp;&nbsp;主页&nbsp;&nbsp;</a></li>
+								<li><a href="<%=basePath %>/about">关于我们</a></li>
+								<li><a href="<%=basePath %>/services">&nbsp;&nbsp;服务&nbsp;&nbsp;</a></li>
+								<li><a href="<%=basePath %>/marketing">&nbsp;&nbsp;购物&nbsp;&nbsp;</a></li>
+								<li><a href="<%=basePath %>/contact">联系我们</a></li>
 								<div class="clear"></div>
 					        </ul>       
 						</div>
