@@ -5,36 +5,18 @@
 	String basePath = request.getContextPath();
 %>
 <!DOCTYPE HTML>
+<html>
 <head>
-<title>Free House Framing Contruction Services Website Template
-	| About :: w3layouts</title>
+<title>${html.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
 </head>
 <body>
-	<div class="header">
-		<div class="header_top">
-			<div class="wrap">
-				<div class="logo">
-					<a href="index.html"><img src="<%=basePath%>/images/logo.png"
-						alt="" /></a>
-				</div>
-				<div class="menu">
-					<ul>
-						<li><a href="<%=basePath%>/">&nbsp;&nbsp;主页&nbsp;&nbsp;</a></li>
-						<li class="active"><a href="<%=basePath%>/about">关于我们</a></li>
-						<li><a href="<%=basePath%>/services">&nbsp;&nbsp;服务&nbsp;&nbsp;</a></li>
-						<li><a href="<%=basePath%>/marketing">&nbsp;&nbsp;购物&nbsp;&nbsp;</a></li>
-						<li><a href="<%=basePath%>/contact">联系我们</a></li>
-						<div class="clear"></div>
-					</ul>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-	</div>
+	<input id="liindex" value="2" type="hidden">
+	<jsp:include  page="header.jsp"/>
 	<div class="main">
 		<div class="wrap">
 			<div class="sidebar">
@@ -144,65 +126,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<div class="footer">
-		<div class="wrap">
-			<div class="section group">
-				<div class="col_1_of_4 span_1_of_4">
-					<div class="location">
-						<h3>Location</h3>
-						<ul>
-							<li><img src="<%=basePath%>/images/footer_logo.png" alt="" /></li>
-							<li>1-22-003-55,</li>
-							<li>Neque porro quisquam,</li>
-							<li>dolor sit amet,</li>
-							<li>USA.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h3>Information</h3>
-					<p>
-						Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-						nostrud nisi ut aliquip ex ea commodo consequat.<br>
-						<span><a href="#">Read More[....]</a></span>
-					</p>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h3>Testimonials</h3>
-					<div class="Testimonials_desc">
-						<p>
-							<span class="up"><img
-								src="<%=basePath%>/images/quotes.png" alt=""></span>Lorem ipsum
-							dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-							minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-							aliquip ex ea commodo consequat.<span class="down"><img
-								src="./images/quotes-down.png" alt=""></span>
-						</p>
-						<h5>- Lorem ipsum dolor</h5>
-					</div>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h3>Contact Us</h3>
-					<ul class="address">
-						<li>info(at)yourcompany.com</li>
-						<li><span>Mobile :</span> +12 345 67890</li>
-						<li><span>Telephone :</span> +00 000 00000</li>
-						<li><span>Fax :</span> +00 000 00000</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="copy-right">
-			<div class="wrap">
-				<p>
-					Design by <a href="http://w3layouts.com">W3Layouts</a>
-				</p>
-				<div class="clear"></div>
-			</div>
-		</div>
-	</div>
+	<jsp:include  page="footer.jsp"/>
 </body>
 </html>
 
