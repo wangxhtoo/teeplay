@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 
 public class HttpUtils {
-
+	
+	public static int COOKIE_TIME = 3600 * 24 * 365 * 2;
 	/**
 	 * 得到请求的IP地址
 	 * 
