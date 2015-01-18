@@ -1,3 +1,4 @@
+<%@page import="org.teeplay.util.TeeUtil"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,7 +8,7 @@ String basePath = request.getContextPath();
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>${html.title}</title>
+<title><%=TeeUtil.HTML_TITLE %></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">

@@ -1,3 +1,4 @@
+<%@page import="org.teeplay.util.TeeUtil"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,12 +8,15 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>${html.title}</title>
+<title><%=TeeUtil.HTML_TITLE%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript">
+	alert($.cookie("teeplay_cookie_username"));
+</script>
 </head>
 <body>
 	<input id="liindex" value="2" type="hidden">

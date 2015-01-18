@@ -1,3 +1,4 @@
+<%@page import="org.teeplay.util.TeeUtil"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,16 +8,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>${html.title}</title>
+<title><%=TeeUtil.HTML_TITLE %></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="<%=basePath%>css/style.css" rel="stylesheet" type="text/css"
+<link href="/css/style.css" rel="stylesheet" type="text/css"
 	media="all" />
-<link href="<%=basePath%>css/slider.css" rel="stylesheet"
+<link href="/css/slider.css" rel="stylesheet"
 	type="text/css" media="all" />
 <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/js/cookie.js"></script>
 <script type="text/javascript" src="/js/login.js"></script>
 <script type="text/javascript">
 	$(window).load(function() {
@@ -134,7 +136,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="sidebar_right_bottom">
+				<div class="sidebar_right_bottom" id="logininfo">
 					<h3>Member Login</h3>
 					<div class="login_form">
 						<form id="loginForm">
@@ -152,6 +154,22 @@
 							</div>
 							<span><a href="#">Forgot Password ?</a></span>
 						</form>
+						<h4>
+							Free registration <a href="#">Click here</a>
+						</h4>
+					</div>
+				</div>
+				<div class="sidebar_right_bottom" style="display: none;" id="userinfo">
+					<h3>Member Login</h3>
+					<div class="login_form">
+						<div>
+							<span><label>User Name</label></span> <span><input
+								type="text" class="textbox" disabled="disabled" ></span>
+						</div>
+						<div>
+							<span><label>email</label></span> <span><input
+								type="text" disabled="disabled"></span>
+						</div>
 						<h4>
 							Free registration <a href="#">Click here</a>
 						</h4>
