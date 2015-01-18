@@ -5,7 +5,13 @@ function login() {
         data: $("#loginForm").serialize(),
         url: "/login",
         success: function(data) {
-            alert(data);
+            if(data.success == true){
+            		$("#logininfo").hide();
+            		$("#userinfo").show();
+            		var name = $.cookie("teeplay_cookie_username");
+            		alert(name);
+            }
+            alert(data.message);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {}
     });
