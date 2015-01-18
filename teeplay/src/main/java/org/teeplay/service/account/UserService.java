@@ -5,8 +5,6 @@ import org.teeplay.model.account.TeeUser;
 
 public interface UserService {
 
-	public TeeUser getUserById();
+	public TeeUser getUserByUP(String username,String password);
 	
-	public TeeUser getUserByEmail(String email);
-
 }
