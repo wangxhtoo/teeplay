@@ -4,6 +4,16 @@ import java.util.Date;
 
 public class TeeUser {
 	
+	public enum User {
+		
+		id,
+		username,
+		password,
+		mail,
+		createdate
+
+	}
+	
 	private long id;
 	
 	private String name;
