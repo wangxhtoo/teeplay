@@ -24,8 +24,6 @@ public class TeeUtil {
 
 	public static final String APPLICATION_PROPERTIES = "/env.properties";
 
-	public static String HTML_TITLE;
-	public static String COOKIE_DOMAIN;
 
 	public static boolean isNotNullObject(Object o) {
 		if (o == null)
@@ -74,6 +72,14 @@ public class TeeUtil {
 		}
 
 	}
+	
+	public static String HTML_TITLE;
+	public static String COOKIE_DOMAIN;
+	public static String MASTER_MONGO_DB_HOST;
+	public static String SLAVE_MONGO_DB_HOST;
+	public static String MASTER_MONGO_DB_PORT;
+	public static String SLAVE_MONGO_DB_PORT;
+	public static String MONGO_DB_NAME;
 
 	static {
 		try {
@@ -88,6 +94,22 @@ public class TeeUtil {
 				if (key != null && key.equals("cookie.domain")) {
 					COOKIE_DOMAIN = String.valueOf(p.get(key));
 				}
+				if (key != null && key.equals("master.mongo.db.host")) {
+					MASTER_MONGO_DB_HOST = String.valueOf(p.get(key));
+				}
+				if (key != null && key.equals("master.mongo.db.port")) {
+					MASTER_MONGO_DB_PORT = String.valueOf(p.get(key));
+				}
+				if (key != null && key.equals("slave.mongo.db.host")) {
+					SLAVE_MONGO_DB_HOST = String.valueOf(p.get(key));
+				}
+				if (key != null && key.equals("slave.mongo.db.port")) {
+					SLAVE_MONGO_DB_PORT = String.valueOf(p.get(key));
+				}
+				if (key != null && key.equals("mongo.db.name")) {
+					MONGO_DB_NAME = String.valueOf(p.get(key));
+				}
+				
 			}
 		} catch (IOException e) {
 			logger.debug("加载文件错误 ：application.properties", e);

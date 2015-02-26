@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.MDC;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import org.teeplay.model.account.TeeUser;
+import org.teeplay.model.account.TableUser;
 import org.teeplay.util.HttpUtils;
 import org.teeplay.util.TeeUtil;
 
@@ -27,7 +27,7 @@ public class TeeplayGlobalInterceptor implements HandlerInterceptor {
 		if (null == modelAndView) {
 			return;
 		}
-		TeeUser tUser = (TeeUser) request.getSession().getAttribute(TeeUtil.SESSION_USER);
+		TableUser tUser = (TableUser) request.getSession().getAttribute(TeeUtil.SESSION_USER);
 		if (tUser == null) {
 			modelAndView.addObject("isAdmin", false);
 		} else {

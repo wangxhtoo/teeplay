@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.teeplay.model.account.TeeUser;
+import org.teeplay.model.account.TableUser;
 import org.teeplay.util.TeeUtil;
 
 public class LoginFilter implements Filter {
@@ -32,16 +32,14 @@ public class LoginFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse rep = (HttpServletResponse) response;
 		
-		TeeUser tu = (TeeUser) req.getSession().getAttribute(TeeUtil.SESSION_USER);
-		
+//		TeeUser tu = (TeeUser) req.getSession().getAttribute(TeeUtil.SESSION_USER);
+//		
 //		String uri = req.getRequestURI();
-//		logger.info("[class:LoginFilter][method:doFilter][uri:"+uri+"]");
 //		if(tu == null && !uri.equals("/")){
 //			String path = req.getContextPath();
 //			String basePath = request.getScheme() + "://"
 //					+ request.getServerName() + ":" + request.getServerPort()
 //					+ path;
-//			logger.info("[class:LoginFilter][method:doFilter][basePath:"+basePath+"]");
 //			rep.sendRedirect(basePath);
 //		}else{
 			chain.doFilter(req, rep);

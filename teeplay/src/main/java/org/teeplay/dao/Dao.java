@@ -6,10 +6,17 @@ import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
-public abstract class Dao {
+public abstract class Dao<T> {
 	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
 	private static final String SQL_PROP_FILE_PREFIX = "/sql/";
+	
+	String GET_ID = "SELECT LAST_INSERT_ID() AS last_insert_id";
 	
 	protected Properties sqlProp;
 
@@ -33,4 +40,5 @@ public abstract class Dao {
 			}
 		}
 	}
+	
 }
