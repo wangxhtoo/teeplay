@@ -2,20 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
 	String basePath = request.getContextPath();
 %>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title><%=TeeUtil.HTML_TITLE %></title>
+<title><%=TeeUtil.HTML_TITLE%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link href="/css/slider.css" rel="stylesheet"
-	type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/slider.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript" src="/js/cookie.js"></script>
@@ -33,10 +31,10 @@
 	<div class="slider">
 		<div class="slider-wrapper theme-default">
 			<div id="slider" class="nivoSlider">
-				<img src="/images/1.jpg" data-thumb="/images/1.jpg" alt="" /> 
-				<img src="/images/2.jpg" data-thumb="/images/2.jpg" alt="" /> 
-				<img src="/images/3.jpg" data-thumb="/images/3.jpg" alt="" /> 
-				<img src="/images/4.jpg" data-thumb="/images/4.jpg" alt="" />
+				<img src="/images/1.jpg" data-thumb="/images/1.jpg" alt="" /> <img
+					src="/images/2.jpg" data-thumb="/images/2.jpg" alt="" /> <img
+					src="/images/3.jpg" data-thumb="/images/3.jpg" alt="" /> <img
+					src="/images/4.jpg" data-thumb="/images/4.jpg" alt="" />
 			</div>
 		</div>
 	</div>
@@ -136,7 +134,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="sidebar_right_bottom" id="logininfo">
+				
+				<shiro:hasRole name="administrator">
+					<div class="sidebar_right_bottom" id="logininfo">
 					<h3>Member Login</h3>
 					<div class="login_form">
 						<form id="loginForm">
@@ -159,16 +159,17 @@
 						</h4>
 					</div>
 				</div>
+				</shiro:hasRole>
 				<div class="sidebar_right_bottom" style="display: none;" id="userinfo">
 					<h3>Member Login</h3>
 					<div class="login_form">
 						<div>
 							<span><label>User Name</label></span> <span><input
-								type="text" class="textbox" disabled="disabled" ></span>
+								type="text" class="textbox" disabled="disabled"></span>
 						</div>
 						<div>
-							<span><label>email</label></span> <span><input
-								type="text" disabled="disabled"></span>
+							<span><label>email</label></span> <span><input type="text"
+								disabled="disabled"></span>
 						</div>
 						<h4>
 							Free registration <a href="#">Click here</a>

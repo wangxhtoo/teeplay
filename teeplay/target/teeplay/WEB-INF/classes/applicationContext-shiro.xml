@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- =========================================================
+         Shiro Core Components - Not Spring Specific
+         ========================================================= -->
+    <!-- Shiro's main business-tier object for web-enabled applications
+         (use DefaultSecurityManager instead when there is no web environment)-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+       <!--  <property name="cacheManager" ref="cacheManager"/>
+        Single realm app.  If you have multiple realms, use the 'realms' property instead.
+        <property name="sessionMode" value="native"/> -->
+        <property name="realm" ref="teeplayRealm"/>
+    </bean>
+
+    <!-- Used by the SecurityManager to access security data (users, roles, etc).
+         Many other realm implementations can be used too (PropertiesRealm,
+         LdapRealm, etc. -->
+    <bean id="teeplayRealm" class="org.teeplay.shiro.TeeplayRealm">
+        <property name="name" value="teeplayRealm"/>
+        <!-- 
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="SHA-256"/>
+                <property name="storedCredentialsHexEncoded" value="false"/>
+            </bean>
+        </property>
+         -->
+    </bean>
+
+
+    <!-- Define the Shiro Filter here (as a FactoryBean) instead of directly in web.xml -
+         web.xml uses the DelegatingFilterProxy to access this bean.  This allows us
+         to wire things with more control as well utilize nice Spring things such as
+         PropertiesPlaceholderConfigurer and abstract beans or anything else we might need: -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/jsp/login.jsp"/>
+        <property name="successUrl" value="/" />
+        <property name="unauthorizedUrl" value="/jsp/login.jsp" />
+        <!-- 
+         <property name="unauthorizedUrl" value="/unauthorized"/>
+        The 'filters' property is not necessary since any declared javax.servlet.Filter bean
+             defined will be automatically acquired and available via its beanName in chain
+             definitions, but you can perform overrides or parent/child consolidated configuration
+             here if you like: -->
+        <!-- <property name="filters">
+            <util:map>
+                <entry key="aName" value-ref="someFilterPojo"/>
+            </util:map>
+        </property> -->
+        <property name="filterChainDefinitions">
+            <value>
+                # allow WebStart to pull the jars for the swing app:
+                /*.jar = anon
+                /*.css = anon
+                /*.js = anon
+                /*.* = anon
+                /login = anon
+                /regist.jsp = anon
+                /logout = logout
+                # everything else requires authentication:
+                /** = authc
+            </value>
+        </property>
+    </bean>    
+</beans>

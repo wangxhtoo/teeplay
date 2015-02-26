@@ -20,9 +20,11 @@
     <!-- The use of <context:component-scan> implicitly enables the functionality of 
     	 <context:annotation-config>. There is usually no need to include the 
     	 <context:annotation-config> element when using <context:component-scan>. -->
-    <context:component-scan base-package="org.teeplay.service,org.teeplay.dao,org.teeplay.model"/>
+    <context:component-scan base-package="org.teeplay">
+    		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>    
+    </context:component-scan>
     
     <!-- 数据源配置文件 -->
     <import resource="dataSource.xml"/>
-    
+    <import resource="applicationContext-shiro.xml"/>
 </beans>
