@@ -26,5 +26,6 @@
     
     <!-- 数据源配置文件 -->
     <import resource="dataSource.xml"/>
-    <import resource="applicationContext-shiro.xml"/>
+    <!-- 
+    <import resource="applicationContext-shiro.xml"/> -->
 </beans>

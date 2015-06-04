@@ -134,32 +134,6 @@
 						</div>
 					</div>
 				</div>
-				
-				<shiro:hasRole name="administrator">
-					<div class="sidebar_right_bottom" id="logininfo">
-					<h3>Member Login</h3>
-					<div class="login_form">
-						<form id="loginForm">
-							<div>
-								<span><label>User Name</label></span> <span><input
-									name="username" type="text" class="textbox"></span>
-							</div>
-							<div>
-								<span><label>Password</label></span> <span><input
-									name="password" type="password"></span>
-							</div>
-							<div>
-								<span><input type="button" class="mybutton"
-									value="Submit" onclick="login();"></span>
-							</div>
-							<span><a href="#">Forgot Password ?</a></span>
-						</form>
-						<h4>
-							Free registration <a href="#">Click here</a>
-						</h4>
-					</div>
-				</div>
-				</shiro:hasRole>
 				<div class="sidebar_right_bottom" style="display: none;" id="userinfo">
 					<h3>Member Login</h3>
 					<div class="login_form">

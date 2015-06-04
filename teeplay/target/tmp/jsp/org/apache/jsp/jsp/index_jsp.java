@@ -12,20 +12,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_hasRole_name;
-
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
-  }
-
-  public void _jspInit() {
-    _jspx_tagPool_shiro_hasRole_name = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-  }
-
-  public void _jspDestroy() {
-    _jspx_tagPool_shiro_hasRole_name.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -192,11 +182,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t\r\n");
-      out.write("\t\t\t\t");
-      if (_jspx_meth_shiro_hasRole_0(_jspx_page_context))
-        return;
-      out.write("\r\n");
       out.write("\t\t\t\t<div class=\"sidebar_right_bottom\" style=\"display: none;\" id=\"userinfo\">\r\n");
       out.write("\t\t\t\t\t<h3>Member Login</h3>\r\n");
       out.write("\t\t\t\t\t<div class=\"login_form\">\r\n");
@@ -233,55 +218,5 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
-  }
-
-  private boolean _jspx_meth_shiro_hasRole_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:hasRole
-    org.apache.shiro.web.tags.HasRoleTag _jspx_th_shiro_hasRole_0 = (org.apache.shiro.web.tags.HasRoleTag) _jspx_tagPool_shiro_hasRole_name.get(org.apache.shiro.web.tags.HasRoleTag.class);
-    _jspx_th_shiro_hasRole_0.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_hasRole_0.setParent(null);
-    _jspx_th_shiro_hasRole_0.setName("administrator");
-    int _jspx_eval_shiro_hasRole_0 = _jspx_th_shiro_hasRole_0.doStartTag();
-    if (_jspx_eval_shiro_hasRole_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\t\t\t\t\t<div class=\"sidebar_right_bottom\" id=\"logininfo\">\r\n");
-        out.write("\t\t\t\t\t<h3>Member Login</h3>\r\n");
-        out.write("\t\t\t\t\t<div class=\"login_form\">\r\n");
-        out.write("\t\t\t\t\t\t<form id=\"loginForm\">\r\n");
-        out.write("\t\t\t\t\t\t\t<div>\r\n");
-        out.write("\t\t\t\t\t\t\t\t<span><label>User Name</label></span> <span><input\r\n");
-        out.write("\t\t\t\t\t\t\t\t\tname=\"username\" type=\"text\" class=\"textbox\"></span>\r\n");
-        out.write("\t\t\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t\t\t\t<div>\r\n");
-        out.write("\t\t\t\t\t\t\t\t<span><label>Password</label></span> <span><input\r\n");
-        out.write("\t\t\t\t\t\t\t\t\tname=\"password\" type=\"password\"></span>\r\n");
-        out.write("\t\t\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t\t\t\t<div>\r\n");
-        out.write("\t\t\t\t\t\t\t\t<span><input type=\"button\" class=\"mybutton\"\r\n");
-        out.write("\t\t\t\t\t\t\t\t\tvalue=\"Submit\" onclick=\"login();\"></span>\r\n");
-        out.write("\t\t\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t\t\t\t<span><a href=\"#\">Forgot Password ?</a></span>\r\n");
-        out.write("\t\t\t\t\t\t</form>\r\n");
-        out.write("\t\t\t\t\t\t<h4>\r\n");
-        out.write("\t\t\t\t\t\t\tFree registration <a href=\"#\">Click here</a>\r\n");
-        out.write("\t\t\t\t\t\t</h4>\r\n");
-        out.write("\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t");
-        int evalDoAfterBody = _jspx_th_shiro_hasRole_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_hasRole_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_0);
-      return true;
-    }
-    _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_0);
-    return false;
   }
 }
