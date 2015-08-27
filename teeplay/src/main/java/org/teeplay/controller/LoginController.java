@@ -17,9 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.teeplay.model.account.TableUser;
+import org.teeplay.model.account.User;
 import org.teeplay.service.account.UserService;
 import org.teeplay.util.TeeUtil;
 
@@ -72,12 +71,12 @@ public class LoginController {
 			@RequestParam(required=true) String email,
 			HttpServletRequest requ,
 			HttpServletResponse resp){
-		TableUser user = new TableUser();
+		User user = new User();
 		user.setEmail(email);
-		user.setName(username);
+		user.setUserName(username);
 		user.setPassword(password);
 		logger.info(user.toString());
-        TableUser u = userService.regist(user);
+		User u = userService.regist(user);
         if(u!=null){
         		return "/login";
         }

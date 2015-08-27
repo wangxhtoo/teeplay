@@ -2,14 +2,14 @@ package org.teeplay.service.account;
 
 import java.util.List;
 
-import org.teeplay.model.account.TableUser;
+import org.teeplay.model.account.User;
 
 
 public interface UserService {
 
-	public TableUser getUserByUP(String username,String password);
+	public User getUserByUP(String username,String password);
 	
-	public TableUser getUserByU(String username);
+	public User getUserByU(String username);
 	
 	public long saveResource(String rescName,String rescPerm,String rescDesc,long parentId);
 	
@@ -23,6 +23,6 @@ public interface UserService {
 	
 	public List<String> getUserRescs(long userId);
 	
-	public TableUser regist(TableUser user);
+	public User regist(User user);
 	
 }

@@ -24,6 +24,8 @@
 		<jackson.core.lgpl>1.9.13</jackson.core.lgpl>
 		<jackson.mapper.lgpl>1.9.13</jackson.mapper.lgpl>
 		<fastjson.version>1.1.41</fastjson.version>
+		<guava.version>18.0</guava.version>
+		<hibernate-validator.version>5.0.3.Final</hibernate-validator.version>
 	</properties>
 
 	<!-- 设定中央仓库（repo1.maven.org/maven2）外的其他仓库，按设置顺序查找 -->
@@ -145,6 +147,17 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- JSR303 Bean Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>5.0.0.CR1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
@@ -254,6 +267,11 @@
 		<!-- Optional Jars (for certain features) but required by maven for building. -->
 		<dependency>
 			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>[2.1_3,)</version>
 			<type>jar</type>
@@ -273,6 +291,26 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.6.11</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-web</artifactId>
+			<version>2.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

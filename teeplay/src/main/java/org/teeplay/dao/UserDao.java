@@ -10,8 +10,7 @@ import java.util.Map;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
-import org.teeplay.model.account.TableResource;
-import org.teeplay.model.account.TableUser;
+import org.teeplay.model.account.User;
 
 @Component
 public class UserDao extends Dao{
@@ -46,18 +45,18 @@ public class UserDao extends Dao{
 	* @return TeeUser    返回类型
 	* @throws
 	 */
-	public TableUser getUserByUP(String username,String password){
+	public User getUserByUP(String username,String password){
 		return jdbcTemplate.query(sqlProp.getProperty(SQL.GET_USER_BY_USERNAME_PASSWORD.toString()),
-				new Object[] {username,password},new ResultSetExtractor<TableUser>(){
+				new Object[] {username,password},new ResultSetExtractor<User>(){
 			@Override
-			public TableUser extractData(ResultSet rs) throws SQLException,
+			public User extractData(ResultSet rs) throws SQLException,
 					DataAccessException {
 				while (rs.next()) {
-					TableUser user = new TableUser();
-					user.setId(rs.getLong(TableUser.User.id.toString()));
-					user.setName(rs.getString(TableUser.User.username.toString()));
-					user.setPassword(rs.getString(TableUser.User.password.toString()));
-					user.setCreateTime(rs.getTimestamp(TableUser.User.createdate.toString()));
+					User user = new User();
+					user.setId(rs.getLong(""));
+					user.setUserName("");
+					user.setPassword(rs.getString(""));
+					user.setCreateTime(rs.getTimestamp(""));
 					return user;
 				}
 				return null;
@@ -66,18 +65,18 @@ public class UserDao extends Dao{
 		});
 	}
 	
-	public TableUser getUserByU(String username){
+	public User getUserByU(String username){
 		return jdbcTemplate.query(sqlProp.getProperty(SQL.GET_USER_BY_USERNAME.toString()),
-				new Object[] {username},new ResultSetExtractor<TableUser>(){
+				new Object[] {username},new ResultSetExtractor<User>(){
 			@Override
-			public TableUser extractData(ResultSet rs) throws SQLException,
+			public User extractData(ResultSet rs) throws SQLException,
 					DataAccessException {
 				while (rs.next()) {
-					TableUser user = new TableUser();
-					user.setId(rs.getLong(TableUser.User.id.toString()));
-					user.setName(rs.getString(TableUser.User.username.toString()));
-					user.setPassword(rs.getString(TableUser.User.password.toString()));
-					user.setCreateTime(rs.getTimestamp(TableUser.User.createdate.toString()));
+					User user = new User();
+					user.setId(rs.getLong(""));
+					user.setUserName(rs.getString(""));
+					user.setPassword(rs.getString(""));
+					user.setCreateTime(rs.getTimestamp(""));
 					return user;
 				}
 				return null;

@@ -2,7 +2,14 @@ package org.teeplay.model.account;
 
 import java.util.Date;
 
-public class TableResource {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.teeplay.model.IdEntity;
+
+@Entity
+@Table(name="table_resource")
+public class Resource extends IdEntity{
 	
 	private long resourceId;
 	private String resourceName;

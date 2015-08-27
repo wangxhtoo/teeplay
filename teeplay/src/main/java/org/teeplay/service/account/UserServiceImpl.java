@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.teeplay.dao.UserDao;
-import org.teeplay.model.account.TableResource;
-import org.teeplay.model.account.TableUser;
+import org.teeplay.model.account.Resource;
+import org.teeplay.model.account.User;
 
 @Service(value="userService")
 @Transactional
@@ -22,13 +22,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public TableUser getUserByUP(String username, String password) {
+	public User getUserByUP(String username, String password) {
 		// TODO Auto-generated method stub
 		return userDao.getUserByUP(username, password);
 	}
 
 	@Override
-	public TableUser getUserByU(String username) {
+	public User getUserByU(String username) {
 		// TODO Auto-generated method stub
 		return userDao.getUserByU(username);
 	}
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public TableUser regist(TableUser user) {
+	public User regist(User user) {
 		
 		logger.info("==========注册==========");
 		

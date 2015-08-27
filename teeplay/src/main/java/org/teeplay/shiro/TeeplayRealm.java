@@ -28,13 +28,14 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.teeplay.model.account.TableUser;
+import org.teeplay.model.account.User;
 import org.teeplay.service.account.UserService;
 
 /**
@@ -45,31 +46,44 @@ public class TeeplayRealm extends AuthorizingRealm {
 
     private static final Logger log = LoggerFactory.getLogger(TeeplayRealm.class);
 
+    public UserService userService;
+    
+	public UserService getUserService() {
+		return userService;
+	}
+
 	@Autowired
-	private UserService userService;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
 		log.info("[doGetAuthorizationInfo][principals:"+principals.toString()+"]");
 		
-//		principals.getPrimaryPrincipal().
-		
-		return null;
+		ShiroUser shiroUser = (ShiroUser)principals.getPrimaryPrincipal();
+		User u = userService.getUserByU(shiroUser.loginName);
+		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+//		for (Role role : .getRoleList()) {
+//			// 基于Role的权限信息
+//			info.addRole(role.getName());
+//			// 基于Permission的权限信息
+//			info.addStringPermissions(role.getPermissionList());
+//		}
+		return info;
 	}
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
-		SimpleAuthenticationInfo info = null;
 		UsernamePasswordToken t = (UsernamePasswordToken)token;
 		String username = t.getUsername();
 		log.info("[doGetAuthenticationInfo][username:"+username+"]");
-		TableUser u = userService.getUserByU(username);
+		User u = userService.getUserByU(username);
 		if(u!=null){
-			info = new SimpleAuthenticationInfo(new ShiroUser(u.getName()),u.getPassword(),
-					ByteSource.Util.bytes(u.getName()), getName());
-			return info;
+			return new SimpleAuthenticationInfo(new ShiroUser(u.getLoginName(),u.getUserName()),u.getPassword(),
+					ByteSource.Util.bytes(u.getUserName()), getName());
 		}
 		return null;
 	}
@@ -79,10 +93,21 @@ public class TeeplayRealm extends AuthorizingRealm {
 	 */
 	public static class ShiroUser implements Serializable {
 
+		/**
+		* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)
+		*/ 
+		private static final long serialVersionUID = -4688213377814927100L;
 		public String loginName;
+		public String name;
+		
 
-		public ShiroUser(String loginName) {
+		public ShiroUser(String loginName,String name) {
 			this.loginName = loginName;
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
 		}
 
 		/**

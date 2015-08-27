@@ -10,8 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.teeplay.model.account.TableResource;
-import org.teeplay.model.account.TableUser;
+import org.teeplay.model.account.User;
 import org.teeplay.service.account.UserService;
 
 
@@ -25,7 +24,7 @@ public class InitSystemData extends AbstractTransactionalJUnit4SpringContextTest
 	
 	@Test
 	public void testFindUser(){
-		TableUser u = userService.getUserByU("sfs");
+		User u = userService.getUserByU("sfs");
 		System.out.println(u.getId());
 	}
 	
@@ -49,7 +48,7 @@ public class InitSystemData extends AbstractTransactionalJUnit4SpringContextTest
 		userService.insertRoleResource(n5, n2);
 		userService.insertRoleResource(n5, n3);
 		
-		TableUser u = userService.getUserByU("sfs");
+		User u = userService.getUserByU("sfs");
 		
 		userService.insertUserRole(u.getId(), n5);
 		
